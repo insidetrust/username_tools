@@ -6,7 +6,7 @@ import argparse
 
 
 def roundrobin(*iterables):
-    "roundrobin('ABC', 'D', 'EF') --> A D E B F C"
+    # roundrobin('ABC', 'D', 'EF') --> A D E B F C
     # Recipe credited to George Sakkis
     pending = len(iterables)
     nexts = itertools.cycle(iter(it).next for it in iterables)
@@ -47,29 +47,39 @@ if __name__ == "__main__":
 
     title = '''
 
-    ,------.    ,-----.  ,-----.
-    |  .-.  \ _'  .-.  '_|  |) /_  ,---. ,--.--.
-    |  |  \  :_|  | |  |_|  .-.  \| .-. :|  .--'
-    |  '--'  / '  '-'  ' |  '--' /\   --.|  |
-    `-------'   `-----'  `------'  `----'`--'
+    ,------.   ,-----. ,-----.
+    |  .-.  \ '  .-.  '|  |) /_  ,---. ,--.--.
+    |  |  \  :|  | |  ||  .-.  \| .-. :|  .--'
+    |  '--'  /'  '-'  '|  '--' /\   --.|  |
+    `-------'  `-----' `------'  `----'`--'
 
+                 (   )   (
+                 @   @   @
+                _i___i___i_
+               (___________)
+               |==[HAPPY]==|
+               (__[B'DAY]__)
+               <-----+----->
+                    -|-
+                   / | \\
+                __.  |  .__
+              ---------------
 
     DOBer, a tool for generating date-of-birth lists in likelihood order.
+    May be quite efficient, assuming that an applications' user-age follows
+    a normal distribution, some kind of bell-curve, or similar distribution.
 
     Ben Williams, NCC Group 2016
 
 
+Date-of-birth can be generated in various formats:
+
 Example: python dober.py --max 50 --min 12 --average 25 --format "%d%m%y"
-
 291176
-...
 
-Example: python dober.py --max 26 --min 21 --average 23 --format "%b %d %Y" -o test.txt
-
-Nov 29 1993
-...
-
-    '''
+Example: python dober.py --max 26 --min 21 --average 23 --format "%b-%d-%Y" -o test.txt
+Nov-29-1993
+'''
 
     print(title)
 
@@ -98,7 +108,7 @@ Nov 29 1993
     list_object.generate()
     list_object.write_files(args.output)
 
-
+    print("File '%s' generated" % args.output)
     print("\nFinished!")
 
 
