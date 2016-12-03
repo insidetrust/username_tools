@@ -65,11 +65,11 @@ if __name__ == "__main__":
                 __.  |  .__
               ---------------
 
-    DOBer, a tool for generating date-of-birth lists in likelihood order.
-    May be quite efficient, assuming that an applications' user-age follows
-    a normal distribution, some kind of bell-curve, or similar distribution.
+DOBer, a tool for generating date-of-birth lists in likelihood order.
+May be quite efficient, assuming that an applications' user-age follows
+a normal distribution, some kind of bell-curve, or similar distribution.
 
-    Ben Williams, NCC Group 2016
+Ben Williams, NCC Group 2016
 
 
 Date-of-birth can be generated in various formats:
@@ -86,21 +86,20 @@ Nov-29-1993
     logging.basicConfig(format="[%(levelname)s]-%(threadName)s: %(message)s", level=logging.DEBUG)
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--format", help="Format string to use for date format",
+    parser.add_argument("--format", help="Format string to use for date format (default of %%d-%%m-%%y = 29-11-16).",
                         default='%d-%m-%y')
 
     parser.add_argument("-o", "--output", help="File to output",
                         default='output.txt')
 
-    parser.add_argument("--max", help="Maximum users age.", type=int,
+    parser.add_argument("--max", help="Maximum users age (default of 65).", type=int,
                         default=65)
 
-    parser.add_argument("--min", help="Minimum users age.", type=int,
+    parser.add_argument("--min", help="Minimum users age (default of 18).", type=int,
                         default=18)
 
-    parser.add_argument("--average", help="Average users age.", type=int,
+    parser.add_argument("--average", help="Average users age (default of 40).", type=int,
                         default=40)
-
 
     args = parser.parse_args()
 
